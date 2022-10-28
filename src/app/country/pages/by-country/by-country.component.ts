@@ -20,7 +20,8 @@ export class ByCountryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  search() {
+  search( searchText: string ) {
+    this.searchText = searchText;
     if(!this.searchText) return
     this.isError = false;
     this.countryService.searchCountry(this.searchText)
@@ -36,6 +37,10 @@ export class ByCountryComponent implements OnInit {
           console.log('Complete');
         }
       })
+  }
+
+  suggestions( searchText: string ) {
+    this.isError = false;
   }
 
 }

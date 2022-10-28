@@ -2,18 +2,11 @@
 
 <div class="row">
   <div class="col">
-    <form 
-      autocomplete="off"
-      (ngSubmit)="search()"
+    <app-country-input
+      (onEnter)="search($event)"
+      (onDebounce)="suggestions($event)"
     >
-      <input 
-        type="text" 
-        class="form-control" 
-        placeholder="Buscar por país"
-        [(ngModel)]="searchText"
-        [ngModelOptions]="{standalone: true}"
-      >
-    </form>
+    </app-country-input>
   </div>
 </div>
 

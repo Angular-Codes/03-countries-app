@@ -1,0 +1,13 @@
+<form 
+  autocomplete="off"
+  (ngSubmit)="search()"
+>
+  <input 
+    type="text" 
+    class="form-control" 
+    placeholder="Buscar por país"
+    [(ngModel)]="searchText"
+    [ngModelOptions]="{standalone: true}"
+    (input)="keyPress()"
+  >
+</form>

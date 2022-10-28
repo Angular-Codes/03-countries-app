@@ -8,6 +8,7 @@ import { ByRegionComponent } from './pages/by-region/by-region.component';
 import { CountryDetailComponent } from './pages/country-detail/country-detail.component';
 import { RouterModule } from '@angular/router';
 import { CountryTableComponent } from './components/country-table/country-table.component';
+import { CountryInputComponent } from './components/country-input/country-input.component';
 
 
 
@@ -17,7 +18,8 @@ import { CountryTableComponent } from './components/country-table/country-table.
     ByCountryComponent,
     ByRegionComponent,
     CountryDetailComponent,
-    CountryTableComponent
+    CountryTableComponent,
+    CountryInputComponent
   ],
   imports: [
     CommonModule,
