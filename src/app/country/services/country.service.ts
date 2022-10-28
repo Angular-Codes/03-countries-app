@@ -18,4 +18,8 @@ export class CountryService {
     return this.http.get<CountryResponse[]>(`${this.apiUrl}/name/${search}`);
   }
 
+  searchCapital(search: string) {
+    return this.http.get<CountryResponse[]>(`${this.apiUrl}/capital/${search}`);
+  }
+
 }

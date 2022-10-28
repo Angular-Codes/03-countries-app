@@ -5,7 +5,7 @@
   <input 
     type="text" 
     class="form-control" 
-    placeholder="Buscar por país"
+    [placeholder]="placeholder"
     [(ngModel)]="searchText"
     [ngModelOptions]="{standalone: true}"
     (input)="keyPress()"
