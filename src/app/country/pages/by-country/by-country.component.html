@@ -18,33 +18,13 @@
 </div>
 
 <hr>
-<div class="alert alert-danger">
-    No hay resultados para tu búsqueda
+<div *ngIf="isError" class="alert alert-danger">
+    No hay resultados para tu búsqueda: <strong>{{ searchText }}</strong>
 </div>
 
-<div class="row">
+<div *ngIf="!isError" class="row">
   <div class="col">
-    <table class="table table-hover">
-      <thead>
-        <tr> 
-          <th>#</th>
-          <th>Bandera</th>
-          <th>Nombre</th>
-          <th>Población</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td><img src="https://restcountries.eu/data/afg.svg" width="50px"></td>
-          <td>Afganistán</td>
-          <td>27657145</td>
-          <td>
-            <a href="">Ver...</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <app-country-table [countries]="countries">
+    </app-country-table>
   </div>
 </div>

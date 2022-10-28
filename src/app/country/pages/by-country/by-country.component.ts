@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CountryService } from '../../services/country.service';
+import { CountryResponse } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'app-by-country',
@@ -8,14 +10,32 @@ import { Component, OnInit } from '@angular/core';
 export class ByCountryComponent implements OnInit {
 
   searchText: string = '';
+  isError: boolean = false;
+  countries: CountryResponse[] = [];
 
-  constructor() { }
+  constructor(
+    private countryService: CountryService
+  ) { }
 
   ngOnInit(): void {
   }
 
   search() {
-    console.log(this.searchText);
+    if(!this.searchText) return
+    this.isError = false;
+    this.countryService.searchCountry(this.searchText)
+      .subscribe({
+        next: (countries) => {
+          this.countries = countries;
+        },
+        error: (_) => {
+          this.isError = true;
+          this.countries = [];
+        },
+        complete: () => {
+          console.log('Complete');
+        }
+      })
   }
 
 }
