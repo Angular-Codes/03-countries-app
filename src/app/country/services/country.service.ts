@@ -25,4 +25,8 @@ export class CountryService {
     return this.http.get<CountryResponse>(`${this.apiUrl}/alpha/${id}`);
   }
 
+  getCountryByRegion(region: string) {
+    return this.http.get<CountryResponse[]>(`${this.apiUrl}/region/${region}`);
+  }
+
 }
