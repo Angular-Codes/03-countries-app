@@ -12,6 +12,7 @@ export class ByCountryComponent implements OnInit {
   searchText: string = '';
   isError: boolean = false;
   countries: CountryResponse[] = [];
+  suggestionCountries : CountryResponse[] = [];
 
   constructor(
     private countryService: CountryService
@@ -41,6 +42,18 @@ export class ByCountryComponent implements OnInit {
 
   suggestions( searchText: string ) {
     this.isError = false;
+
+    if(searchText === '') return;
+
+    this.countryService.searchCountry(searchText)
+      .subscribe({
+        next: (countries) => {
+          this.suggestionCountries = countries.splice(0,5);
+        },
+        error: (_) => {
+          this.suggestionCountries = [];
+        }
+      })
   }
 
 }
