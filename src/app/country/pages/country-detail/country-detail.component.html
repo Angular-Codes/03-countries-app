@@ -1,1 +1,43 @@
-<p>country-detail works!</p>
+<div 
+  *ngIf="!country; else countryTemplate"
+  class="alert alert-info"
+>
+  Esperando por el país...
+</div>
+
+<ng-template #countryTemplate>
+  <div class="col-12">
+    <h1>
+      Pais: {{country.name}}
+    </h1>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img 
+        [src]="country.flag"
+        [alt]="country.name"
+        class="img-thumbnail"
+      >
+    </div>
+    <div class="col">
+      <h3>Informacion</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <b>Capital: </b> {{country.capital}}
+        </li>
+        <li class="list-group-item">
+          <b>Población: </b> {{country.population | number}}
+        </li>
+        <li class="list-group-item">
+          <b>Latitud: </b> {{country.latlng[0]}}
+        </li>
+        <li class="list-group-item">
+          <b>Longitud: </b> {{country.latlng[1]}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</ng-template> 
